@@ -1,0 +1,18 @@
+{{# This syntax works #}}
+{{ collection:events :id:not="id" :community:is="community:id" }}
+    {{ title }} <br>
+{{ /collection:events }}
+
+<br>
+
+{{# This syntax works #}}
+{{ collection:events community:is="{community:id}" id:not="{id}" }}
+    {{ title }} <br>
+{{ /collection:events }}
+
+<br>
+
+{{# This syntax breaks when moving the id filter before the community filter #}}
+{{ collection:events id:not="{id}" community:is="{community:id}" }}
+    {{ title }} <br>
+{{ /collection:events }}
